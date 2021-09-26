@@ -77,7 +77,7 @@ void loop()
   } 
   switch (contador)
   {
-  case 1/* constant-expression */:
+  case 1:
     digitalWrite(5, LOW);
     digitalWrite(6, LOW);
     digitalWrite(7, LOW);
@@ -86,7 +86,7 @@ void loop()
     digitalWrite(10, LOW);
     digitalWrite(11, LOW);
     break;
-  case 2/* constant-expression */:
+  case 2:
     digitalWrite(5, LOW);
     digitalWrite(6, LOW);
     digitalWrite(7, HIGH);
@@ -95,7 +95,7 @@ void loop()
     digitalWrite(10, LOW);
     digitalWrite(11, HIGH);
     break;
-  case 3/* constant-expression */:
+  case 3:
     digitalWrite(5, LOW);
     digitalWrite(6, LOW);
     digitalWrite(7, HIGH);
@@ -104,7 +104,7 @@ void loop()
     digitalWrite(10, LOW);
     digitalWrite(11, HIGH);
     break;
-  case 4/* constant-expression */:
+  case 4:
     digitalWrite(5, HIGH);
     digitalWrite(6, LOW);
     digitalWrite(7, HIGH);
@@ -113,7 +113,7 @@ void loop()
     digitalWrite(10, LOW);
     digitalWrite(11, HIGH);
     break;
-  case 5/* constant-expression */:
+  case 5:
     digitalWrite(5, HIGH);
     digitalWrite(6, LOW);
     digitalWrite(7, HIGH);
@@ -123,7 +123,7 @@ void loop()
     digitalWrite(11, HIGH);
     break;
   
-  case 6/* constant-expression */:
+  case 6:
     digitalWrite(5, HIGH);
     digitalWrite(6, HIGH);
     digitalWrite(7, HIGH);
