@@ -71,7 +71,7 @@ void loop()
    
   } 
   if (botonRandom == HIGH && botonRandom != botonRandomAntes) {
-    contador = rand() % 7;
+    contador = (rand() %6) + 1;
     
    
   } 
