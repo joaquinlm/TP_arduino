@@ -60,17 +60,17 @@ void loop()
   Serial.println("Contador");
   Serial.println(contador);
     
- if (botonUp == HIGH && botonUpAntes == LOW) {
+ if (botonUp == HIGH && botonUp != botonUpAntes) {
     contador++;
     
    
   } 
- if (botonDown == HIGH && botonDownAntes == LOW) {
+ if (botonDown == HIGH &&  botonDown != botonDownAntes) {
     contador--;
     
    
   } 
-  if (botonRandom == HIGH && botonRandomAntes == LOW) {
+  if (botonRandom == HIGH && botonRandom != botonRandomAntes) {
     contador = rand() % 7;
     
    
