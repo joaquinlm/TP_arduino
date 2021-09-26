@@ -43,6 +43,7 @@ void setup()
  int botonUpAntes = LOW;
  int botonDownAntes = LOW;
  int botonRandomAntes = LOW;
+ int randomFlag = 0;
  
 void loop()
 {
@@ -60,19 +61,19 @@ void loop()
   Serial.println("Contador");
   Serial.println(contador);
     
- if (botonUp == HIGH && botonUp != botonUpAntes) {
+ if (randomFlag && botonUp == HIGH && botonUp != botonUpAntes) {
     contador++;
     
    
   } 
- if (botonDown == HIGH &&  botonDown != botonDownAntes) {
+ if (randomFlag && botonDown == HIGH &&  botonDown != botonDownAntes) {
     contador--;
     
    
   } 
   if (botonRandom == HIGH && botonRandom != botonRandomAntes) {
-    contador = (rand() %6) + 1;
-    
+    contador = (rand() % 6) + 1;
+    randomFlag = 1;
    
   } 
   switch (contador)
