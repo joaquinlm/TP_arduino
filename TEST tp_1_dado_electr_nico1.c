@@ -1,18 +1,19 @@
+#include <time.h>
 /*
  * MIT License
- *
+ * 
  * Copyright (c) 2021 [Lucas Ferrini - FacuFalcone]
- *
+ * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- *
+ * 
  * The above copyright notice and this permission notice shall be included in all
  * copies or substantial portions of the Software.
- *
+ * 
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -21,8 +22,9 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-void setup()
+void setup() 
 {
+  srand(time(NULL));
   pinMode(5, OUTPUT);
   pinMode(6, OUTPUT);
   pinMode(7, OUTPUT);
@@ -30,37 +32,52 @@ void setup()
   pinMode(9, OUTPUT);
   pinMode(10, OUTPUT);
   pinMode(11, OUTPUT);
-
+  
   pinMode(4, INPUT);
   pinMode(3, INPUT);
- // Serial.begin(9600);
+  pinMode(2, INPUT);
+  Serial.begin(9600);
 }
 
- int contador = 0;
- int UPAntes = LOW;
- int DOWNAntes = LOW;
-
+ int contador = 0; 
+ int botonUpAntes = LOW;
+ int botonDownAntes = LOW;
+ int botonRandomAntes = LOW;
+ 
 void loop()
 {
-
-  int UP = digitalRead(4);
-  int DOWN = digitalRead(3);
+  
+  int botonUp = digitalRead(4);
+  int botonDown = digitalRead(3);
+  int botonRandom = digitalRead(2);
   /*Serial.println("UP");
   Serial.println(UP);
   Serial.println("DOWN");
-  Serial.println(UP);
+  Serial.println(UP);*/
+  
+  Serial.println("RANDOM");
+  Serial.println(botonRandom);
   Serial.println("Contador");
-  Serial.println(contador);*/
-
- if (UP == HIGH && UPAntes == LOW) {
+  Serial.println(contador);
+    
+ if (botonUp == HIGH && botonUpAntes == LOW) {
     contador++;
-  }
- if (DOWN == HIGH && DOWNAntes == LOW) {
+    
+   
+  } 
+ if (botonDown == HIGH && botonDownAntes == LOW) {
     contador--;
-  }
+    
+   
+  } 
+  if (botonRandom == HIGH && botonRandomAntes == LOW) {
+    contador = rand() % 7;
+    
+   
+  } 
   switch (contador)
   {
-  case 1:
+  case 1/* constant-expression */:
     digitalWrite(5, LOW);
     digitalWrite(6, LOW);
     digitalWrite(7, LOW);
@@ -69,7 +86,7 @@ void loop()
     digitalWrite(10, LOW);
     digitalWrite(11, LOW);
     break;
-  case 2:
+  case 2/* constant-expression */:
     digitalWrite(5, LOW);
     digitalWrite(6, LOW);
     digitalWrite(7, HIGH);
@@ -78,7 +95,7 @@ void loop()
     digitalWrite(10, LOW);
     digitalWrite(11, HIGH);
     break;
-  case 3:
+  case 3/* constant-expression */:
     digitalWrite(5, LOW);
     digitalWrite(6, LOW);
     digitalWrite(7, HIGH);
@@ -87,7 +104,7 @@ void loop()
     digitalWrite(10, LOW);
     digitalWrite(11, HIGH);
     break;
-  case 4:
+  case 4/* constant-expression */:
     digitalWrite(5, HIGH);
     digitalWrite(6, LOW);
     digitalWrite(7, HIGH);
@@ -96,7 +113,7 @@ void loop()
     digitalWrite(10, LOW);
     digitalWrite(11, HIGH);
     break;
-  case 5:
+  case 5/* constant-expression */:
     digitalWrite(5, HIGH);
     digitalWrite(6, LOW);
     digitalWrite(7, HIGH);
@@ -105,8 +122,8 @@ void loop()
     digitalWrite(10, LOW);
     digitalWrite(11, HIGH);
     break;
-
-  case 6:
+  
+  case 6/* constant-expression */:
     digitalWrite(5, HIGH);
     digitalWrite(6, HIGH);
     digitalWrite(7, HIGH);
@@ -115,9 +132,9 @@ void loop()
     digitalWrite(10, HIGH);
     digitalWrite(11, HIGH);
     break;
-
+  
   default:
-    digitalWrite(5, LOW);
+  digitalWrite(5, LOW);
     digitalWrite(6, LOW);
     digitalWrite(7, LOW);
     digitalWrite(8, LOW);
@@ -129,9 +146,11 @@ void loop()
   }
 
 
-    UPAntes = UP;
-    DOWNAntes = DOWN;
+    botonUpAntes = botonUp;
+    botonDownAntes = botonDown;
+    botonRandomAntes = botonRandom;
   }
 
 
-
+ 
+  
